@@ -1,7 +1,7 @@
 package View;
 
 import Controller.TelaPrincipalController;
-import Dados.Assistido;
+import Model.Assistido;
 import com.mycompany.DAO.AssistidoDao;
 import Conexao.Conexao;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -234,6 +234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TxtIdososBusca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jTabbedPane2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
@@ -785,7 +786,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
         ComboParentescoIntegrante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ComboParentescoIntegrante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha", "Esposa(o)", "Filho(a)", "Sobrinho(a)", "Neto(a)", "Namorado(a)", "Pai", "Mãe" }));
+        ComboParentescoIntegrante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha", "Esposa(o)", "Filho(a)", "Sobrinho(a)", "Irmão(a)", "Neto(a)", "Namorado(a)", "Pai", "Mãe", "Outros" }));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel20.setText("Data de Nascimento:");
@@ -1926,7 +1927,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnCadastrarAssistidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarAssistidoActionPerformed
-        controller.CadastraAssistido();
+        controller.CadastrarAssistido();
         try {
             controller.listarJtableAssistido();
             controller.listarJTablePesquisaAssistido();

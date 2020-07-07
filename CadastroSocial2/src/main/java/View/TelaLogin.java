@@ -5,7 +5,7 @@
  */
 package View;
 
-import Dados.Usuario;
+import Model.Usuario;
 import com.formdev.flatlaf.FlatLightLaf;
 import Controller.TelaLoginController;
 import java.sql.SQLException;
@@ -45,6 +45,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

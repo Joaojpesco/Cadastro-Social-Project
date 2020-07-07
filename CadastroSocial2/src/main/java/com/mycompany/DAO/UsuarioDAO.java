@@ -1,6 +1,6 @@
 package com.mycompany.DAO;
 
-import Dados.Usuario;
+import Model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

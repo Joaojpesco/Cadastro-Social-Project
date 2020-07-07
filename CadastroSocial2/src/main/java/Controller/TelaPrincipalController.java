@@ -1,9 +1,9 @@
 package Controller;
 
-import Dados.Assistido;
-import Dados.Integrante;
-import Dados.Psc;
-import Dados.Voluntarios;
+import Model.Assistido;
+import Model.Integrante;
+import Model.Psc;
+import Model.Voluntarios;
 import View.TelaPrincipal;
 import com.mycompany.DAO.AssistidoDao;
 import Conexao.Conexao;
@@ -32,7 +32,7 @@ public class TelaPrincipalController {
         this.view = view;
     }
     
-    public void CadastraAssistido(){
+    public void CadastrarAssistido(){
         Assistido assistido = new Assistido();
         Connection conexao;
         if(view.getTxtNomeAssistido().getText().equals("")){
@@ -122,17 +122,62 @@ public class TelaPrincipalController {
     public void CadastrarPsc(){
         Psc psc = new Psc();
         Connection conexao;
-        
-        if(view.getTxtNomePsc().getText().equals("") || view.getTxtEnderecoPsc().getText().equals("") || view.getTxtBairroPsc().getText().equals("")){
+        /*
+        if(view.getTxtNomePsc().getText().equals("")){
             JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
-        }else if(view.getTxtCepPsc().getText().equals("") || view.getTxtCidadePsc().getText().equals("") || view.getTxtTelefonePsc().getText().equals("")){
+        }else if(view.getTxtEnderecoPsc().getText().equals("")){
             JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
-        }else if(view.getTxtInicioPsc().getText().equals("") || view.getTxtFimPsc().getText().equals("") || view.getTxtMedidaSemanaPsc().getText().equals("")){
+        }else if(view.getTxtBairroPsc().getText().equals("")){
             JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
-        }else if(view.getTxtDiasSemanaPsc().getText().equals("") || view.getTxtHorariosPsc().getText().equals("") || view.getTxtMedidaTotalPsc().getText().equals("")){
+        }else if(view.getTxtCepPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtCidadePsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtTelefonePsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtInicioPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtFimPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtMedidaSemanaPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtDiasSemanaPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtHorariosPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }else if(view.getTxtMedidaTotalPsc().getText().equals("")){
             JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
         }else if(view.getComboVaraCriminalPsc().getSelectedItem().equals("Selecione uma das opções")){
-            JOptionPane.showMessageDialog(null, "Selecione uma das opções para vara criminal.");
+            JOptionPane.showMessageDialog(null, "Campo não pode estar vazio.");
+        }
+        */
+        
+        if(view.getTxtNomePsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo nome não pode estar vazio.");
+        }else if(view.getTxtEnderecoPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo endereço não pode estar vazio.");
+        }else if(view.getTxtBairroPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo bairro não pode estar vazio.");
+        }else if(view.getTxtCepPsc().getText().equals("     -   ")){
+            JOptionPane.showMessageDialog(null, "Campo cep não pode estar vazio.");
+        }else if(view.getTxtCidadePsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo cidade não pode estar vazio.");
+        }else if(view.getTxtTelefonePsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo telefone não pode estar vazio.");
+        }else if(view.getTxtInicioPsc().getText().equals("  /  /    ")){
+            JOptionPane.showMessageDialog(null, "Campo data de início não pode estar vazio.");
+        }else if(view.getTxtFimPsc().getText().equals("  /  /    ")){
+            JOptionPane.showMessageDialog(null, "Campo data de encerramento não pode estar vazio.");
+        }else if(view.getTxtMedidaSemanaPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo medida imposta(horas semana) não pode estar vazio.");
+        }else if(view.getTxtDiasSemanaPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo dias da semana não pode estar vazio.");
+        }else if(view.getTxtHorariosPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo horários não pode estar vazio.");
+        }else if(view.getTxtMedidaTotalPsc().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo medida imposta(horas total) não pode estar vazio.");
+        }else if(view.getComboVaraCriminalPsc().getSelectedItem().equals("Selecione uma das opções")){
+            JOptionPane.showMessageDialog(null, "Campo vara criminal não pode estar vazio.");
         }else{
             psc.setNome(view.getTxtNomePsc().getText());
             psc.setEndereco(view.getTxtEnderecoPsc().getText());
@@ -844,18 +889,22 @@ public class TelaPrincipalController {
                 view.getTxtDataIntegrante().setText(it.getDatanascimento());
                 if(it.getParentesco().equals("Esposa(o)")){
                     view.getComboParentescoIntegrante().setSelectedIndex(1);
-                }else if(it.getParentesco().equals("Filho")){
+                }else if(it.getParentesco().equals("Filho(a)")){
                     view.getComboParentescoIntegrante().setSelectedIndex(2);
-                }else if(it.getParentesco().equals("Sobrinho")){
+                }else if(it.getParentesco().equals("Sobrinho(a)")){
                     view.getComboParentescoIntegrante().setSelectedIndex(3);
-                }else if(it.getParentesco().equals("Neto")){
+                }else if(it.getParentesco().equals("Irmão(a)")){
                     view.getComboParentescoIntegrante().setSelectedIndex(4);
-                }else if(it.getParentesco().equals("Namorado")){
+                }else if(it.getParentesco().equals("Neto(a)")){
                     view.getComboParentescoIntegrante().setSelectedIndex(5);
-                }else if(it.getParentesco().equals("Pai")){
+                }else if(it.getParentesco().equals("Namorado(a)")){
                     view.getComboParentescoIntegrante().setSelectedIndex(6);
-                }else if(it.getParentesco().equals("Mãe")){
+                }else if(it.getParentesco().equals("Pai")){
                     view.getComboParentescoIntegrante().setSelectedIndex(7);
+                }else if(it.getParentesco().equals("Mãe")){
+                    view.getComboParentescoIntegrante().setSelectedIndex(8);
+                }else if(it.getParentesco().equals("Outros")){
+                    view.getComboParentescoIntegrante().setSelectedIndex(9);
                 }
                 
                 if(it.getFrequenciacentro() == false){

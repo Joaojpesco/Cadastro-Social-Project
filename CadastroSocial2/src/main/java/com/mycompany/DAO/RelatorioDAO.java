@@ -1,8 +1,8 @@
 package com.mycompany.DAO;
 
-import Dados.Assistido;
-import Dados.Integrante;
-import Dados.Psc;
+import Model.Assistido;
+import Model.Integrante;
+import Model.Psc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

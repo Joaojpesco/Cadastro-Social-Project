@@ -1,6 +1,6 @@
 package com.mycompany.DAO;
 
-import Dados.Assistido;
+import Model.Assistido;
 import View.TelaPrincipal;
 import java.sql.Connection;
 import java.sql.Date;
